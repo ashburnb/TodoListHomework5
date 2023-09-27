@@ -15,11 +15,11 @@ class StoreViewModel: ObservableObject {
   }
   
   init(withMockData: Bool = false) {
-    let mockTaskData1 = Task(title: "Mow Lawn", isCompleted: false, notes: "It's soooo long")
-    let mockTaskData2 = Task(title: "Vacuum House", isCompleted: false, notes: "Diiiiirty")
-    let mockTaskData3 = Task(title: "Pull Weeds", isCompleted: true, notes: "Watch out for spikey ones!")
-    let mockTaskData4 = Task(title: "Harvest guavas", isCompleted: true, notes: "Get them before the birds do")
-    let mockTaskData5 = Task(title: "Wash car", isCompleted: false, notes: "Or leave it parked outside in the rain")
+    var mockTaskData1 = Task(title: "Mow Lawn", isCompleted: false, notes: "It's soooo long")
+    var mockTaskData2 = Task(title: "Vacuum House", isCompleted: false, notes: "Diiiiirty")
+    var mockTaskData3 = Task(title: "Pull Weeds", isCompleted: true, notes: "Watch out for spikey ones!")
+    var mockTaskData4 = Task(title: "Harvest guavas", isCompleted: true, notes: "Get them before the birds do")
+    var mockTaskData5 = Task(title: "Wash car", isCompleted: false, notes: "Or leave it parked outside in the rain")
     
     store = []
     store.append(mockTaskData1)
@@ -34,8 +34,12 @@ class StoreViewModel: ObservableObject {
     // do it
   }
   
-  func completeTask() {
-    
+  func completeTask(task: inout Task, hasBeenCompleted: Bool) {
+    if hasBeenCompleted {
+      task.isCompleted = true
+    } else {
+      task.isCompleted = false
+    }
   }
   
 }

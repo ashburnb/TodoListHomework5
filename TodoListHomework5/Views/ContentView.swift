@@ -14,16 +14,16 @@ struct ContentView: View {
   var body: some View {
     NavigationStack {
       ScrollView {
-        ForEach(storeVM.store, id: \.id) { task in
-          NavigationLink(value: task) {
+        ForEach(storeVM.store.indices, id: \.self) { idx in
+          NavigationLink(value: idx) {
             VStack {
               HStack {
-                Text("\(task.title)")
+                Text("\(storeVM.store[idx].title)")
                   .fontWeight(.bold)
                   .font(.title3)
                 Spacer()
-                Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
-                  .foregroundStyle(task.isCompleted ? .green : .red)
+                Image(systemName: storeVM.store[idx].isCompleted ? "checkmark.circle" : "circle")
+                  .foregroundStyle(storeVM.store[idx].isCompleted ? .green : .red)
                   .fontWeight(.bold)
                   .font(.title)
               } // end of HStack
@@ -34,8 +34,8 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
           } // end of NavigationLink
         } // end of ForEach loop
-        .navigationDestination(for: Task.self) { taskDetails in
-          TaskDetailView(title: taskDetails.title, isCompleted: taskDetails.isCompleted, notes: taskDetails.notes)
+        .navigationDestination(for: Int.self) { idx in
+          TaskDetailView(storeVM: storeVM, taskIndex: idx)
         }
         .navigationTitle("FanTASKtic")
         .toolbar {
@@ -62,7 +62,7 @@ struct ContentView: View {
           }
         }
         .sheet(isPresented: $showAddTaskView) {
-          AddNewTaskView()
+          AddNewTaskView(storeVM: storeVM)
         }
       } // end of ScrollView
     } // end of NavigationStack

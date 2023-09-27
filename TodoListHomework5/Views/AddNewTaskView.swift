@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddNewTaskView: View {
+  @ObservedObject var storeVM: StoreViewModel
+  @Environment(\.dismiss) var dismiss
   @State private var taskTitle: String = ""
   @State private var notes: String = ""
   
@@ -21,7 +23,8 @@ struct AddNewTaskView: View {
         }
         
         Section("NOTES") {
-          TextField("Notes", text: $notes)
+          TextEditor(text: $notes)
+            .frame(minHeight: 130)
         }
         
       }
@@ -30,7 +33,7 @@ struct AddNewTaskView: View {
       .toolbar {
         ToolbarItemGroup(placement: .topBarLeading) {
           Button {
-            // dismiss sheet
+            dismiss()
             // do not save data
           } label: {
             Text("Cancel")
@@ -38,12 +41,13 @@ struct AddNewTaskView: View {
         }
         ToolbarItem(placement: .topBarTrailing) {
           Button {
-            // dismiss sheet
-            // toggle showAddTaskView
-            // save the data
+            dismiss()
+            let newTask = Task(title: taskTitle, isCompleted: false, notes: notes)
+            storeVM.store.append(newTask)
           } label: {
             Text("Add")
           }
+          .disabled(taskTitle == "")
         }
       }
     }
@@ -51,5 +55,5 @@ struct AddNewTaskView: View {
 }
 
 #Preview {
-  AddNewTaskView()
+  AddNewTaskView(storeVM: StoreViewModel())
 }
