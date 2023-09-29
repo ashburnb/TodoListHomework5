@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct AddButtonView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var body: some View {
+    HStack {
+      Image(systemName: "plus.circle.fill")
+      Text("New Task")
+        .fontWeight(.bold)
     }
+    .font(.title2)
+    .padding()
+    .background(.blue)
+    .foregroundStyle(.white)
+    .clipShape(
+      RoundedRectangle(cornerRadius: 20)
+    )
+  }
 }
 
 #Preview {
-    AddButtonView()
+  AddButtonView()
 }

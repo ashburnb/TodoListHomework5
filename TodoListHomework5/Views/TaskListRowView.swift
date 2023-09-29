@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct TaskListRowView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  @ObservedObject var storeVM: StoreViewModel
+  let taskIndex: Int
+  
+  var body: some View {
+    VStack {
+      HStack {
+        Text("\(storeVM.store[taskIndex].title)")
+          .fontWeight(.bold)
+          .font(.title3)
+        Spacer()
+        Image(systemName: storeVM.store[taskIndex].isCompleted ? "checkmark.circle" : "circle")
+          .foregroundStyle(storeVM.store[taskIndex].isCompleted ? .green : .red)
+          .fontWeight(.bold)
+          .font(.title)
+      } // end of HStack
+      Divider()
+    } // end of VStack
+    .padding(.horizontal, 30)
+    .padding(.vertical, 12)
+    .frame(maxWidth: .infinity)
+  }
 }
 
-#Preview {
-    TaskListRowView()
-}

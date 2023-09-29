@@ -13,7 +13,6 @@ struct AddNewTaskView: View {
   @State private var taskTitle: String = ""
   @State private var notes: String = ""
   
-  
   var body: some View {
     NavigationView {
       Form {

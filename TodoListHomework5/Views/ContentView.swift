@@ -16,23 +16,8 @@ struct ContentView: View {
       ScrollView {
         ForEach(storeVM.store.indices, id: \.self) { idx in
           NavigationLink(value: idx) {
-            VStack {
-              HStack {
-                Text("\(storeVM.store[idx].title)")
-                  .fontWeight(.bold)
-                  .font(.title3)
-                Spacer()
-                Image(systemName: storeVM.store[idx].isCompleted ? "checkmark.circle" : "circle")
-                  .foregroundStyle(storeVM.store[idx].isCompleted ? .green : .red)
-                  .fontWeight(.bold)
-                  .font(.title)
-              } // end of HStack
-              Divider()
-            } // end of VStack
-            .padding(.horizontal, 30)
-            .padding(.vertical, 12)
-            .frame(maxWidth: .infinity)
-          } // end of NavigationLink
+            TaskListRowView(storeVM: storeVM, taskIndex: idx)
+          }
         } // end of ForEach loop
         .navigationDestination(for: Int.self) { idx in
           TaskDetailView(storeVM: storeVM, taskIndex: idx)
@@ -43,22 +28,11 @@ struct ContentView: View {
             Button {
               showAddTaskView.toggle()
             } label: {
-              
-              HStack {
-                Image(systemName: "plus.circle.fill")
-                Text("New Task")
-                  .fontWeight(.bold)
-              }
-              .font(.title2)
-              .padding()
-              .background(.blue)
-              .foregroundStyle(.white)
-              .clipShape(
-                RoundedRectangle(cornerRadius: 20)
-              )
+              AddButtonView()
             }
             .padding(.trailing, 5)
-            Spacer()
+            
+            Spacer() // moves the button to the left
           }
         }
         .sheet(isPresented: $showAddTaskView) {
@@ -68,12 +42,6 @@ struct ContentView: View {
     } // end of NavigationStack
   } // end of body property
 }
-
-
-
-
-
-
 
 
 #Preview {

@@ -15,6 +15,8 @@
 		DE25FEDF2AC137AC00C784CF /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25FEDE2AC137AC00C784CF /* StoreViewModel.swift */; };
 		DE31DECB2AC420AC00F46AB0 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31DECA2AC420AC00F46AB0 /* TaskDetailView.swift */; };
 		DE31DECD2AC4210300F46AB0 /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31DECC2AC4210300F46AB0 /* AddNewTaskView.swift */; };
+		DE31DEEC2AC4EF9E00F46AB0 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31DEEB2AC4EF9E00F46AB0 /* AddButtonView.swift */; };
+		DE31DEEE2AC4F01000F46AB0 /* TaskListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31DEED2AC4F01000F46AB0 /* TaskListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		DE25FEDE2AC137AC00C784CF /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		DE31DECA2AC420AC00F46AB0 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		DE31DECC2AC4210300F46AB0 /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
+		DE31DEEB2AC4EF9E00F46AB0 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
+		DE31DEED2AC4F01000F46AB0 /* TaskListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				DE25FED02AC1371400C784CF /* ContentView.swift */,
+				DE31DEEB2AC4EF9E00F46AB0 /* AddButtonView.swift */,
+				DE31DEED2AC4F01000F46AB0 /* TaskListRowView.swift */,
 				DE31DECA2AC420AC00F46AB0 /* TaskDetailView.swift */,
 				DE31DECC2AC4210300F46AB0 /* AddNewTaskView.swift */,
 			);
@@ -173,7 +179,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE31DEEC2AC4EF9E00F46AB0 /* AddButtonView.swift in Sources */,
 				DE31DECD2AC4210300F46AB0 /* AddNewTaskView.swift in Sources */,
+				DE31DEEE2AC4F01000F46AB0 /* TaskListRowView.swift in Sources */,
 				DE25FEDF2AC137AC00C784CF /* StoreViewModel.swift in Sources */,
 				DE25FED12AC1371400C784CF /* ContentView.swift in Sources */,
 				DE25FEDD2AC1375300C784CF /* Task.swift in Sources */,
